@@ -12,6 +12,19 @@
 // the quantity bought.
 // fn calculate_price_of_apples(???) -> ??? { ??? }
 
+const BASE_PRICE: u32 = 2;
+const DISCOUNTED_PRICE: u32 = 1;
+
+fn calculate_price_of_apples(count: u32) -> u32 {
+    let price_per_unit = if count <= 40 {
+        BASE_PRICE
+    } else {
+        DISCOUNTED_PRICE
+    };
+
+    count * price_per_unit
+}
+
 fn main() {
     // You can optionally experiment here.
 }
