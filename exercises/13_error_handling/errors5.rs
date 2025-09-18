@@ -48,9 +48,15 @@ impl PositiveNonzeroInteger {
 
 // TODO: Add the correct return type `Result<(), Box<dyn ???>>`. What can we
 // use to describe both errors? Is there a trait which both errors implement?
-fn main() {
+
+// So I assume that  both the return values implement
+// the Error trait (std::error::Error)
+fn main() -> Result<(), Box<dyn Error>> {
     let pretend_user_input = "42";
+
+    // this returns a Result with  i64::Err in case of Error I think
     let x: i64 = pretend_user_input.parse()?;
+    // this returns a Result with CreationError
     println!("output={:?}", PositiveNonzeroInteger::new(x)?);
     Ok(())
 }
